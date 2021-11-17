@@ -56,8 +56,8 @@
                             {{$d->harga}}
                           </td>
                           <td class="text-center">
-                          <a href="test.html"> <button type="button" class="btn-sm btn-inverse-warning btn-fw">Warning</button></a>
-                          <button type="button" class="btn-sm btn-inverse-danger btn-fw">Danger</button>
+                          <a href="{{route('edit', [$d->id])}}"> <button type="button" class="btn-sm btn-inverse-warning btn-fw">edit</button></a>
+                          <a href="{{route('delete', [$d->id])}}"><button type="button" class="btn-sm btn-inverse-danger btn-fw">Delete</button></a>
                           </td>
                         </tr>
                         @endforeach

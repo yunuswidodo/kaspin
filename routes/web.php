@@ -26,3 +26,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('/home', [KaspinController::class, 'home'])->name('home');
 Route::get('/add', [KaspinController::class, 'add'])->name('add');
+Route::post('/store', [KaspinController::class, 'store']);
+Route::get('/edit/{id}', [KaspinController::class, 'edit'])->name('edit');
+Route::put('/update/{id}', [KaspinController::class, 'update'])->name('update');
+Route::get('/delete/{id}', [KaspinController::class, 'delete'])->name('delete');
