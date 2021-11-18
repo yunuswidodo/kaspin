@@ -14,16 +14,14 @@ use App\http\Controllers\KaspinController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-
+Route::get('/', [KaspinController::class, 'home']);
 Route::get('/home', [KaspinController::class, 'home'])->name('home');
 Route::get('/add', [KaspinController::class, 'add'])->name('add');
 Route::post('/store', [KaspinController::class, 'store']);

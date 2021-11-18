@@ -8,9 +8,11 @@
                   <h4 class="font-weight-bold mb-0">Data Barang</h4>
                 </div>
                 <div>
+                @auth
                     <a href="{{route('add')}}"><button type="button" class="btn btn-primary btn-icon-text btn-rounded" href="index.html">
                       <i class="ti-clipboard btn-icon-prepend"></i>add 
                     </button></a>
+                @endauth
                 </div>
               </div>
                   <div class="table-responsive">
@@ -32,9 +34,11 @@
                           <th>
                             Harga
                           </th>
+                          @auth
                           <th class="text-center">
                             Action
                           </th>
+                          @endauth
                         </tr>
                       </thead>
                       <tbody>
@@ -56,8 +60,14 @@
                             {{$d->harga}}
                           </td>
                           <td class="text-center">
+                          @auth
+                          @if(Auth::user()->id == '1')
                           <a href="{{route('edit', [$d->id])}}"> <button type="button" class="btn-sm btn-inverse-warning btn-fw">edit</button></a>
                           <a href="{{route('delete', [$d->id])}}"><button type="button" class="btn-sm btn-inverse-danger btn-fw">Delete</button></a>
+                          @elseif(Auth::user()->id == '2')
+                          <a href="{{route('edit', [$d->id])}}"> <button type="button" class="btn-sm btn-inverse-warning btn-fw">edit</button></a>
+                          @endif
+                          @endauth
                           </td>
                         </tr>
                         @endforeach
