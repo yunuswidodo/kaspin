@@ -49,4 +49,9 @@ class KaspinController extends Controller
         $data->delete();
         return redirect()->route('home');
     }
+
+    public function log() {
+        return view('log');
+    }
+
 }

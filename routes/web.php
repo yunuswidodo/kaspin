@@ -28,3 +28,4 @@ Route::post('/store', [KaspinController::class, 'store']);
 Route::get('/edit/{id}', [KaspinController::class, 'edit'])->name('edit');
 Route::put('/update/{id}', [KaspinController::class, 'update'])->name('update');
 Route::get('/delete/{id}', [KaspinController::class, 'delete'])->name('delete');
+Route::get('/log', [KaspinController::class, 'log'])->name('log');
