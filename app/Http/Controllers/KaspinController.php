@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Barang;
+use App\Models\ActivityLog;
 
 class KaspinController extends Controller
 {
@@ -23,6 +24,7 @@ class KaspinController extends Controller
         $data->jenis=$request->jenis;
         $data->jumlah=$request->jumlah;
         $data->harga=$request->harga;
+        activity()->log('tambah barang');
         $data->save();
         return redirect()->route('home');
     }
@@ -40,18 +42,23 @@ class KaspinController extends Controller
         $data->jenis=$request->jenis;
         $data->jumlah=$request->jumlah;
         $data->harga=$request->harga;
+        activity()->log('update barang');
         $data->save();
         return redirect()->route('home');
+
+        
     }
 
     public function delete($id){
         $data = barang::find($id);
+        activity()->log('delete barang');
         $data->delete();
         return redirect()->route('home');
     }
 
     public function log() {
-        return view('log');
+        $data = ActivityLog::all();
+        return view('log', ['data'=>$data]);
     }
 
 }
